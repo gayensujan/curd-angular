@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand text-light">LOGO</a>
+      <div class="d-flex">
+        <button (click)="clickaddproduct()" type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#exampleModal">Product</button>
+      </div>
+    </div>
+</nav>
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">Product Records System</h1>
+    <p class="col-md-8 fs-4"> You can save Records of Product</p>
+  </div>
+</div>
+<table class="table mt-4">
+  <thead>
+      <tr>
+          <th scope="col">Product Id</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Product Price</th>
+          <th scope="col">Product Address</th>
+          <th scope="col">Contact</th>
+          <th scope="col">Action</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of allproductdata">
+      <td>{{data.id}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.price}}</td>
+      <td>{{data.address}}</td>
+      <td>{{data.contact}}</td>
+      <td><button (click)="oneditproduct(data)" class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>&nbsp;
+        <button (click)="deleteproduct(data)" class="btn btn-warning" >Delete</button></td>
+    </tr>
+
+  </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Customer Contact</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formvalue">
+          <div class="form-group">
+          <div class="mb-3">
+            <label  class="form-label">Product Name</label>
+            <input type="email" class="form-control" formControlName="name"  placeholder="Enter name" >
+          </div>
+          </div>
+          <div class="mb-3">
+              <label class="form-label">Product Price</label>
+              <input type="number" class="form-control" formControlName="price"  placeholder="Enter number" >
+          </div>
+          <div class="mb-3">
+              <label  class="form-label">Product Address</label>
+              <input type="address" class="form-control" formControlName="address"  placeholder="Abc road , near abc , pin: 12546">
+          </div>
+          <div class="mb-3">
+              <label  class="form-label">Contact</label>
+              <input type="text" class="form-control" formControlName="contact"  placeholder="+91-1234567890">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button *ngIf="showAdd" type="button" class="btn btn-warning" (click)="addprod()">Add Product</button>
+        <button *ngIf="showbtn" type="button" class="btn btn-warning" (click)="updatepro()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
