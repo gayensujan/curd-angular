@@ -19,7 +19,7 @@ showbtn!:boolean;
 
   ngOnInit(): void {
 
-// form grouping ke liye lifecircle use kiya
+// form grouping ke liye lifecycle use kiya
 
 this.formvalue= this.formbuilder.group({
   name:[''],
