@@ -1,6 +1,12 @@
 {
   "posts": [
-
+    {
+      "id": 1,
+      "name": "naga",
+      "price": 12,
+      "address": "nhahyssb",
+      "contact": "7418529632"
+    }
   ],
   "comments": [],
   "profile": {
